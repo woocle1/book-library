@@ -12,8 +12,8 @@ import './Filter.css'
 
 const Filter = () => {
   const dispatch = useDispatch()
-  const titleFiler = useSelector(selectTitleFilter)
-  const authorFiler = useSelector(selectAuthorFilter)
+  const titleFilter = useSelector(selectTitleFilter)
+  const authorFilter = useSelector(selectAuthorFilter)
   const onlyFavoriteFilter = useSelector(selectOnlyFavoriteFilter)
 
   const handleTitleFilterChange = (e) => {
@@ -38,15 +38,15 @@ const Filter = () => {
         <div className="filter-group">
           <input
             type="text"
-            value={titleFiler}
-            placeholder="Filter by tittle..."
+            value={titleFilter}
+            placeholder="Filter by title..."
             onChange={handleTitleFilterChange}
           />
         </div>
         <div className="filter-group">
           <input
             type="text"
-            value={authorFiler}
+            value={authorFilter}
             placeholder="Filter by author..."
             onChange={handleAuthorFilterChange}
           />
