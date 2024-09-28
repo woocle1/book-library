@@ -1,10 +1,38 @@
-import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import {
+  setTitleFilter,
+  resetFilters,
+  selectTitleFilter,
+} from '../../redux/slices/filterSlice'
 import './Filter.css'
 
 const Filter = () => {
+  const dispatch = useDispatch()
+  const titleFiler = useSelector(selectTitleFilter)
+
+  const handleTitleFilterChange = (e) => {
+    dispatch(setTitleFilter(e.target.value))
+  }
+
+  const handleResetFilters = () => {
+    dispatch(resetFilters())
+  }
+
   return (
-    <div className="app-block filer">
-      <h2>Filters</h2>
+    <div className="app-block filter">
+      <div className="filter-row">
+        <div className="filter-group">
+          <input
+            type="text"
+            value={titleFiler}
+            placeholder="Filter by tittle..."
+            onChange={handleTitleFilterChange}
+          />
+        </div>
+        <button type="button" onClick={handleResetFilters}>
+          Reset Filters
+        </button>
+      </div>
     </div>
   )
 }
